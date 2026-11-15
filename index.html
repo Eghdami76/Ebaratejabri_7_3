@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>فصل سوم ریاضی هفتم – عبارت‌های جبری</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f6fb;--cd:#fff;--tx:#1b2233;--mu:#5d6679;--pr:#4f46e5;--on:#fff;--ok:#15803d;--ob:#dcfce7;--no:#b91c1c;--nb:#fee2e2;--bd:#e2e5f0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12141c;--cd:#1c2030;--tx:#eceff7;--mu:#a3abc0;--pr:#818cf8;--on:#12141c;--ok:#4ade80;--ob:#12301f;--no:#f87171;--nb:#3b1a1a;--bd:#2c3248}}
+:root[data-theme="dark"]{--bg:#12141c;--cd:#1c2030;--tx:#eceff7;--mu:#a3abc0;--pr:#818cf8;--on:#12141c;--ok:#4ade80;--ob:#12301f;--no:#f87171;--nb:#3b1a1a;--bd:#2c3248}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Vazirmatn',Tahoma,'Segoe UI',sans-serif;line-height:1.8}
+button{font:inherit;color:inherit;cursor:pointer}
+#app{max-width:560px;margin:0 auto;padding:12px 16px 96px}
+header{text-align:center;margin-bottom:20px}
+h1{font-size:1.5rem;margin:0;font-weight:800;color:var(--pr)}
+h2{font-size:1.1rem;margin:0;font-weight:600}
+.by{margin:6px 0 0;color:var(--mu);font-size:.95rem}
+.grid{display:grid;gap:12px}
+.cat{display:flex;align-items:center;gap:12px;width:100%;text-align:right;padding:15px;background:var(--cd);border:1px solid var(--bd);border-inline-start:6px solid hsl(var(--h) 65% 55%);border-radius:14px;font-weight:600;font-size:1.05rem}
+.cat i{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;background:hsl(var(--h) 65% 50%);color:#fff}
+.cat small{display:block;color:var(--mu);font-weight:400;font-size:.85rem}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:14px}
+.top{display:flex;justify-content:space-between;gap:8px;margin-bottom:10px;font-size:.9rem;color:var(--mu)}
+.link{background:none;border:0;padding:0;color:var(--pr);font-weight:600}
+.bar{height:8px;background:var(--bd);border-radius:9px;overflow:hidden;margin-bottom:14px}
+.bar b{display:block;height:100%;background:var(--pr);transition:width .3s}
+.q{font-size:1.15rem;font-weight:600;margin:0 0 6px}
+.m{direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:600;font-size:1.15em}
+.opt{display:block;width:100%;min-height:48px;margin-top:8px;padding:6px 14px;font-size:1.08rem;color:var(--tx);background:var(--bg);border:2px solid var(--bd);border-radius:12px}
+.opt.ok{background:var(--ob);border-color:var(--ok);color:var(--ok)}
+.opt.no{background:var(--nb);border-color:var(--no);color:var(--no)}
+.msg{margin:14px 0 0;font-weight:600}.g{color:var(--ok)}.r{color:var(--no)}
+.pri,.sec{display:block;width:100%;margin-top:12px;padding:12px;border-radius:12px;font-weight:700;font-size:1rem;border:2px solid var(--pr)}
+.pri{background:var(--pr);color:var(--on)}.sec{background:none;color:var(--pr)}
+.score{font-size:3.2rem;font-weight:800;color:var(--pr);line-height:1.3}.score small{font-size:1rem;color:var(--mu);font-weight:400}
+#fb{scroll-margin-bottom:84px}
+#fb .pri{position:fixed;left:16px;right:16px;bottom:calc(10px + env(safe-area-inset-bottom,0px));max-width:528px;margin:0 auto;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.exp{margin-top:10px;padding:10px 12px;border-radius:12px;background:var(--bg);border:1px dashed var(--no);font-size:.95rem;line-height:1.9}
+.tip{display:flex;align-items:center;gap:12px;margin:0 0 16px;padding:12px 14px;background:var(--cd);border:1px solid var(--bd);border-radius:14px}
+.tip svg{flex:none;width:100px;height:auto}.tip .b{fill:var(--pr)}
+.tip p{margin:0;font-size:.95rem;line-height:1.8}
+.ex{display:block;text-align:center;margin-top:8px;font-size:1.2em}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const r=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,
+pick=a=>a[r(0,a.length-1)],
+sh=a=>a.map(v=>[Math.random(),v]).sort((p,q)=>p[0]-q[0]).map(p=>p[1]),
+fa=s=>String(s).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]),
+M=s=>`<span class="m" dir="ltr">${fa(s)}</span>`,
+V='xyabmnt'.split(''),
+sg=()=>Math.random()<.4?-1:1,
+ex=T=>{T=T.filter(t=>t[0]);return T.length?T.map(([c,v],i)=>{const a=Math.abs(c),b=v?(a==1?v:a+v):a;return i?` ${c<0?'−':'+'} ${b}`:(c<0?'−':'')+b}).join(''):'0'},
+Q=(q,ok,bad,e,num)=>{let o=[...new Set(sh(bad))].filter(x=>x!==ok).slice(0,3);o.push(ok);o=num?o.sort((a,b)=>a-b):sh(o);return{q,e,o:o.map(x=>M(x)),a:o.indexOf(ok)}};
+let ord=[];
+
+const g1=()=>{
+const al=()=>{const v=pick(V),k=r(2,9);return pick([`${k}${v} + ${r(1,9)}`,`${k}${v}`,`${v} − ${r(1,9)}`,`${k}${v} − ${r(1,9)}${pick(V)}`,`${v} + ${pick(V)}`])},
+nu=()=>{const a=r(2,9),b=r(2,9);return pick([`${a} + ${b}`,`${a} × ${b}`,`${a+b} − ${b}`,`${a} × ${b} + ${r(1,9)}`])};
+const A=al(),N=nu();return Math.random()<.5?Q('کدام یک عبارت جبری نیست؟',N,[al(),al(),al(),al(),al()],`عبارتی که فقط عدد دارد و حرف ندارد، عبارت جبری نیست. ${M(N)} فقط عدد دارد.`):Q('کدام یک عبارت جبری است؟',A,[nu(),nu(),nu(),nu(),nu()],`عبارت جبری حداقل یک حرف (متغیر) دارد. ${M(A)} حرف دارد، ولی گزینه‌های دیگر فقط عدد هستند.`)};
+
+const g2=()=>{const n=r(1,4),c=n>1&&Math.random()<.75,T=sh(V).slice(0,n-c).map(v=>[r(1,9)*sg(),v]);if(c)T.push([r(1,9)*sg(),'']);
+return Q(`عبارت ${M(ex(T))} چند جمله دارد؟`,n,[1,2,3,4,5],`جمله‌ها با علامت + یا − از هم جدا می‌شوند. جمله‌ها: ${T.map(t=>M(ex([t]))).join('، ')}؛ پس ${fa(n)} جمله دارد.${c?' عدد ثابت هم یک جمله حساب می‌شود.':''}`,1)};
+
+const g3=()=>{const v=pick(V),Z=Array.from({length:r(2,3)},()=>r(1,9)*sg());Z[0]=Math.abs(Z[0]);const t=Z.reduce((s,x)=>s+x,0);
+return Q(`حاصل ${M(ex(Z.map(c=>[c,v])))} کدام است؟`,ex([[t,v]]),[ex([[t+1,v]]),ex([[t-1,v]]),ex([[t+2,v]]),ex([[t,v+'²']]),ex([[t,'']]),ex([[Z.reduce((s,x)=>s+Math.abs(x),0),v]])],`در جمله‌های متشابه فقط ضریب‌ها را جمع یا کم می‌کنیم و قسمت حرفی تغییر نمی‌کند: ${M(`${Z.map((c,k)=>k?(c<0?' − ':' + ')+Math.abs(c):c).join('')} = ${ex([[t,'']])}`)}؛ پس جواب ${M(ex([[t,v]]))} است.`)};
+
+const g4=()=>{const v=pick(V),w=Math.random()<.4?pick(V.filter(x=>x!==v)):'',k=pick([2,3,4,5,6,-2,-3,-4]),a=r(1,6),b=r(1,9)*sg(),kk=k<0?`(−${-k})`:k,bb=b<0?`(${ex([[b,w]])})`:ex([[b,w]]);
+return Q(`حاصل عبارت زیر را به دست آورید.<span class='ex'>${M(`${k<0?'−':''}${Math.abs(k)}(${ex([[a,v],[b,w]])})`)}</span>`,ex([[k*a,v],[k*b,w]]),[ex([[k*a,v],[b,w]]),ex([[k*a,v],[-k*b,w]]),ex([[k+a,v],[k*b,w]]),ex([[a,v],[k*b,w]]),ex([[k*a,v],[k+b,w]])],`عدد بیرون پرانتز را در هر دو جمله ضرب می‌کنیم و علامت‌ها را رعایت می‌کنیم: ${M(`${kk} × ${ex([[a,v]])} = ${ex([[k*a,v]])}`)} و ${M(`${kk} × ${bb} = ${ex([[k*b,w]])}`)}`)};
+
+const g5=()=>{const v=pick(V),w=Math.random()<.5?pick(V.filter(x=>x!==v)):'',n=()=>r(1,9)*sg();let a,b,c,d;
+do{a=n();b=n();c=n();d=n()}while(!(a+c)||!(b+d));
+return Q(`عبارت ${M(ex(sh([[a,v],[b,w],[c,v],[d,w]])))} پس از ساده شدن کدام می‌شود؟`,ex([[a+c,v],[b+d,w]]),[ex([[a+c+1,v],[b+d,w]]),ex([[a-c,v],[b+d,w]]),ex([[a+c,v],[b-d,w]]),ex([[a+c,v],[b+d+1,w]]),ex([[a+b+c+d,v]])],`جمله‌های متشابه را کنار هم می‌گذاریم و ضریب‌هایشان را جمع می‌کنیم: ${M(`${ex([[a,v],[c,v]])} = ${ex([[a+c,v]])}`)} و ${M(`${ex([[b,w],[d,w]])} = ${ex([[b+d,w]])}`)}؛ پس جواب ${M(ex([[a+c,v],[b+d,w]]))} است.`)};
+
+const g6=i=>{const k=r(2,6),n=r(2,9),v=pick(V),w=pick(V.filter(x=>x!==v)),
+W=s=>`عبارت کلامی «${s}» را به عبارت جبری تبدیل کنید.`,
+T=[
+[W(`${fa(k)} برابر عدد ${M(v)}`),`${k}${v}`,[`${v} + ${k}`,`${v} − ${k}`,`${k} − ${v}`,`${k+1}${v}`]],
+[W(`${fa(n)} واحد بیشتر از عدد ${M(v)}`),`${v} + ${n}`,[`${v} − ${n}`,`${n}${v}`,`${n} − ${v}`,`${n+1}${v}`]],
+[W(`${fa(n)} واحد کمتر از عدد ${M(v)}`),`${v} − ${n}`,[`${n} − ${v}`,`${v} + ${n}`,`${n}${v}`,`${n} + ${v}`]],
+[W(`${fa(n)} واحد به ${fa(k)} برابر عدد ${M(v)} اضافه شده است`),`${k}${v} + ${n}`,[`${k+n}${v}`,`${k}${v} − ${n}`,`${k}(${v} + ${n})`,`${n}${v} + ${k}`]],
+[W(`${fa(n)} واحد از ${fa(k)} برابر عدد ${M(v)} کم شده است`),`${k}${v} − ${n}`,[`${n} − ${k}${v}`,`${k}${v} + ${n}`,`${k}(${v} − ${n})`,`${k} − ${n}${v}`]],
+[W(`مجموع دو عدد ${M(v)} و ${M(w)}`),`${v} + ${w}`,[`${v}${w}`,`${v} − ${w}`,`${w} − ${v}`,`${v}${w} + ${w}`]],
+[W(`حاصل‌ضرب دو عدد ${M(v)} و ${M(w)}`),`${v}${w}`,[`${v} + ${w}`,`${v} − ${w}`,`2${v}${w}`,`${v} + ${v}${w}`]],
+[W(`${fa(k)} برابر مجموع عدد ${M(v)} و ${fa(n)}`),`${k}(${v} + ${n})`,[`${k}${v} + ${n}`,`${k} + ${v} + ${n}`,`${k}${v} − ${n}`,`${k}(${v} − ${n})`]],
+[W(`محیط مربعی به ضلع ${M(v)}`),`4${v}`,[`${v} + 4`,`2${v}`,`${v}²`,`8${v}`]],
+[`سن علی ${M(v)} سال است. سن او را ${fa(n)} سال دیگر با یک عبارت جبری بنویسید.`,`${v} + ${n}`,[`${v} − ${n}`,`${n}${v}`,`${n} − ${v}`,`${n+1}${v}`]],
+[`قیمت هر دفتر ${M(v)} تومان است. قیمت ${fa(k)} دفتر را با یک عبارت جبری بنویسید.`,`${k}${v}`,[`${v} + ${k}`,`${v} − ${k}`,`${k} − ${v}`,`${k+1}${v}`]]
+],X=[`«برابر» یعنی ضرب؛ ${fa(k)} برابر عدد ${M(v)} می‌شود ${M(`${k}${v}`)}.`,`«بیشتر از» یعنی جمع؛ ${fa(n)} واحد به ${M(v)} اضافه می‌شود: ${M(`${v} + ${n}`)}.`,`«کمتر از» یعنی ${fa(n)} واحد از خود عدد کم می‌شود: ${M(`${v} − ${n}`)} و نه ${M(`${n} − ${v}`)}.`,`اول ${fa(k)} برابر ${M(v)} را می‌نویسیم (${M(`${k}${v}`)}) و بعد ${fa(n)} واحد اضافه می‌کنیم: ${M(`${k}${v} + ${n}`)}.`,`اول ${fa(k)} برابر ${M(v)} را می‌نویسیم (${M(`${k}${v}`)}) و بعد ${fa(n)} واحد از آن کم می‌کنیم: ${M(`${k}${v} − ${n}`)}.`,`«مجموع» یعنی جمع: ${M(`${v} + ${w}`)}.`,`«حاصل‌ضرب» یعنی ضرب؛ بین دو حرف علامت ضرب نمی‌نویسیم: ${M(`${v}${w}`)}.`,`اول مجموع را داخل پرانتز می‌نویسیم ${M(`(${v} + ${n})`)}؛ چون ${fa(k)} برابر کل مجموع است: ${M(`${k}(${v} + ${n})`)}.`,`محیط مربع ۴ برابر طول ضلع است: ${M(`4${v}`)}.`,`${fa(n)} سال دیگر یعنی ${fa(n)} سال به سن فعلی اضافه می‌شود: ${M(`${v} + ${n}`)}.`,`قیمت چند دفتر = تعداد × قیمت یک دفتر: ${M(`${k}${v}`)}.`],t=T[ord[i]];return Q(t[0],t[1],t[2],X[ord[i]])};
+
+const C=[
+{n:'تشخیص عبارت جبری',g:g1,h:235},
+{n:'تعداد جمله',g:g2,h:160},
+{n:'جمع و تفریق جملات متشابه',g:g3,h:30},
+{n:'ضرب یک عدد در عبارت جبری داخل پرانتز',g:g4,h:340},
+{n:'ساده کردن عبارت‌های جبری',g:g5,h:270},
+{n:'تبدیل عبارت کلامی به جبری',g:g6,h:195}],
+best={},app=document.getElementById('app');
+let cur,qs,i,sc,done;
+const tip=`<div class='tip'><svg viewBox='0 0 136 100' role='img' aria-label='تمرین بیشتر، پیشرفت بیشتر'><rect class='b' opacity='.35' x='8' y='64' width='26' height='30' rx='4'/><rect class='b' opacity='.65' x='40' y='46' width='26' height='48' rx='4'/><rect class='b' x='72' y='28' width='26' height='66' rx='4'/><polygon fill='#f59e0b' points='85,4 87.6,11.4 95.5,11.6 89.2,16.4 91.5,23.9 85,19.4 78.5,23.9 80.8,16.4 74.5,11.6 82.4,11.4'/><g transform='rotate(30 116 60)'><rect x='112' y='34' width='8' height='38' fill='#f59e0b'/><path d='M112 72h8l-4 9z' fill='#fde68a'/><rect x='112' y='30' width='8' height='6' fill='#f87171'/></g></svg><p><b>تمرین بیشتر، یادگیری بهتر!</b><br>در ریاضی هرچه بیشتر تمرین کنی، درس را بهتر یاد می‌گیری و حل مسئله‌ها برایت آسان‌تر می‌شود. هر بخش را چند بار انجام بده.</p></div>`;
+
+function build(c){const o=[],s=new Set();ord=sh([...Array(11).keys()]);
+for(let t=0;o.length<10&&t<300;t++){const q=c.g(o.length),k=q.q+q.o.join();if(q.o.length==4&&!s.has(k)){s.add(k);o.push(q)}}return o}
+
+function home(){scrollTo(0,0);
+app.innerHTML=`<header><h1>فصل سوم ریاضی هفتم</h1><h2>(درس دوم ـ عبارت‌های جبری)</h2><p class="by">طراح: سارا اقدامی مقدم</p></header>${tip}<div class="grid">${C.map((c,k)=>`<button class="cat" style="--h:${c.h}" onclick="start(${k})"><i>${fa(k+1)}</i><span>${c.n}<small>${best[k]==null?'۱۰ سؤال':'بهترین نمره: '+fa(best[k])+' از ۱۰'}</small></span></button>`).join('')}</div>`}
+
+function start(k){cur=k;qs=build(C[k]);i=0;sc=0;show()}
+
+function show(){scrollTo(0,0);done=0;const q=qs[i];
+app.innerHTML=`<div class="top"><button class="link" onclick="home()">بازگشت به منو</button><span>${C[cur].n}</span></div><div class="bar"><b style="width:${i*10}%"></b></div><div class="card"><div class="top"><span>سؤال ${fa(i+1)} از ۱۰</span><span>درست: ${fa(sc)}</span></div><p class="q">${q.q}</p>${q.o.map((o,j)=>`<button class="opt" onclick="ans(${j})">${o}</button>`).join('')}<div id="fb"></div></div>`}
+
+function ans(j){if(done)return;done=1;setTimeout(()=>document.getElementById('fb').scrollIntoView({block:'nearest',behavior:'smooth'}),60);const q=qs[i],good=j==q.a;if(good)sc++;
+document.querySelectorAll('.opt').forEach((x,n)=>{x.disabled=true;if(n==q.a)x.classList.add('ok');else if(n==j)x.classList.add('no')});
+document.getElementById('fb').innerHTML=`<p class="msg ${good?'g':'r'}">${good?'آفرین! پاسخ درست است ✓':'اشتباه شد؛ پاسخ درست با رنگ سبز مشخص شده است.'}</p>${good?'':`<div class='exp'><b>دلیل پاسخ درست:</b><br>${q.e}</div>`}<button class="pri" onclick="nx()">${i<9?'سؤال بعدی':'مشاهدهٔ نتیجه'}</button>`}
+
+function nx(){i++;i<10?show():result()}
+
+function result(){scrollTo(0,0);best[cur]=Math.max(best[cur]||0,sc);
+const m=sc==10?'عالی بود! 🌟':sc>=7?'آفرین، خیلی خوب!':sc>=5?'خوب بود؛ یک بار دیگر تمرین کن.':'نگران نباش؛ دوباره تلاش کن، یاد می‌گیری.';
+app.innerHTML=`<div class="card" style="text-align:center"><h2>${C[cur].n}</h2><div class="score">${fa(sc)}<small> از ۱۰</small></div><p>${m}</p><button class="pri" onclick="start(${cur})">تلاش دوباره (سؤال‌های جدید)</button><button class="sec" onclick="home()">بازگشت به منو</button></div>`}
+
+home();
+</script>
+</body>
+</html>
